@@ -1,4 +1,4 @@
-let config = {
+const config = {
     rows: 10,
     pegs: 4,
     colorArray: ['blue', 'red', 'yellow', 'green', 'orange', 'pink', 'white', 'black', 'purple', 'cyan', 'teal'],
@@ -38,13 +38,11 @@ let config = {
     },
 };
 
-
 const board = document.getElementById('board');
-
 const isTouchDevice = 'ontouchstart' in document.documentElement;
 if(isTouchDevice) board.classList.add('touch');
 
-let game = {
+const game = {
     selector: '.board',
     solution: [],
     currentRow: 1,
@@ -127,7 +125,8 @@ let game = {
         });
     },
 }
-let action = {
+
+const action = {
     selector: '.action-btn',
     updateTextNode: function(text, active = true) {
         const btn = document.querySelector(this.selector);
@@ -176,6 +175,7 @@ const generateSolution = () => {
     console.log(`La solution est: "${game.solution}"... oui, oui, je sais c'est pas très efficace de tester les résultats en front-end, mais c'est comme ça!`);
     return;
 }
+
 const pegHoleMouseDownEvent = (pegHole, event) => {
     if(pegHole.parentNode.classList.contains('active')) {
         event.preventDefault();
@@ -183,10 +183,12 @@ const pegHoleMouseDownEvent = (pegHole, event) => {
         showColorPalette(pegHole);
     }
 }
+
 const documentMouseUpEvent = () => {
     hideColorPalette();
     hideOptionsList();
 }
+
 const colorTabMouseEnterEvent = (colorTab) => {
     coloringHole(game.currentPeg, colorTab.getAttribute('data-color'));
     if(activeRowIsFilled()) {
@@ -214,6 +216,7 @@ const generatePegHoles = (parent) => {
         parent.appendChild(placeholdeBox2);
     }
 }
+
 const generateKeyHoles = (parent) => {
     const keyBox = document.createElement('div');
     keyBox.classList.add('key-box');
@@ -227,6 +230,7 @@ const generateKeyHoles = (parent) => {
         keyBoxWrapper.appendChild(keyHole);
     }
 }
+
 const generateActionBtn = (parent) => {
     const actionBtn = document.createElement('a');
     actionBtn.setAttribute('class', 'action-btn inactive');
@@ -266,12 +270,14 @@ const showColorPalette = (ref) => {
     colorPalette.style.height = `${ref.offsetHeight}px`;
     colorPalette.classList.add('visible');
 }
+
 const hideColorPalette = () => {
     const colorPalette = document.querySelector('.color-palette');
     colorPalette.style.left = '-999px';
     colorPalette.style.top = '-999px';
     colorPalette.classList.remove('visible');
 }
+
 const hideOptionsList = () => {
     [...document.querySelectorAll('.option-opt-list')].forEach((list) => {
         list.classList.remove('visible');
@@ -287,8 +293,8 @@ const changeLang = () => {
 const clearBoard = () => {
     board.innerHTML = '';
 }
-const initBoard = () => {
 
+const initBoard = () => {
     const head = document.createElement('div');
     head.classList.add('head', 'hidden');
     board.appendChild(head);
@@ -304,8 +310,7 @@ const initBoard = () => {
     }
     generateActionBtn(board);
     generateColorPalette(board);
-
-};
+}
 
 const options = [
     {
@@ -442,16 +447,16 @@ const generateHiddenOptions = () => {
 document.addEventListener('mouseup', function(event){
     documentMouseUpEvent();
 });
+
 document.addEventListener('touchend', function(event){
     if(!event.path[1].classList.contains('active') && !event.path[1].classList.contains('color-palette')) {
         documentMouseUpEvent();
     }
 });
+
 document.addEventListener("DOMContentLoaded",function(){
-    
     generateHiddenOptions();
     initBoard();
-    
 });
 
 
