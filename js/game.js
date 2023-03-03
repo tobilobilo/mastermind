@@ -30,7 +30,7 @@ const config = {
             language: 'Français',
             languageCode: 'fr',
             'optionLangLabel': 'Langue',
-            'optionPegsLabel': 'Nombre de pattes',
+            'optionPegsLabel': 'Nombre de colonnes',
             'optionColorsLabel': 'Nombre de couleurs',
             'optionColorsRows': 'Nombre de rangées',
             'customizeOptions': 'Personaliser le jeu',

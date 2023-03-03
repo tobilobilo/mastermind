@@ -4,7 +4,7 @@ Jeu de Mastermind avec variantes supplémentaires.
 
 ## Description
 
-Ce projet est un jeu de mastermind avec quelques aspects paramètrables comme le nombre de rangées disponibles avant de trouver la solution ainsi que le nombre de couleurs disponible comme choix de combinaison. Ce projet a été fait uniquement en javascript sans l'utilisation de librairie ou framework.
+Ce projet est un jeu de Mastermind avec quelques aspects paramétrables comme le nombre de rangées disponibles avant de trouver la solution ainsi que le nombre de couleurs disponibles comme choix de combinaison. Ce projet a été fait uniquement en Javascript sans l'utilisation de librairie ou framework.
 
 ## Pour Commencer - Getting Started
 
